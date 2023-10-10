@@ -2,23 +2,38 @@
 
 template<typename T>
 
-T add(T a, T b) {
-	return a+b;
+T Min(T a, T b) {
+	if (a < b) {
+		return a;
+	}
+	else {
+		return b;
+	}
+	
 }
+
 
 template<>
-float add<float>(float a, float b) {//オーバーロード特殊化
+float Min<float>(float a, float b) {//オーバーロード特殊化
 	return a - b;
 }
+template<>
+char Min<char>(char a, char b) {
 
-float add(float a, float b){//オーバーロード多重定義
-	return a * b;
+	printf("数字以外は代入できません\n");
+
+	return a;
 }
 
+
+
 int main(void) {
-	printf("%d\n",add<int>(114,514));//628 関数テンプレートを利用
-	printf("%f\n", add<float>(11.4f, 51.4f));//-40.0 特殊化(オーバーライド)を利用
-	printf("%f\n", add(11.4f, 51.4f));//585.96 多重定義(オーバーロード)を利用
+	char c='a';
+	char d='b';
+	printf("%d\n",Min<int>(114,514));//628 関数テンプレートを利用
+	printf("%f\n", Min<float>(11.4f, 51.4f));//-40.0 特殊化(オーバーライド)を利用
+	printf("%lf\n", Min<double>(11.4f, 51.4f));//double
+	Min(c,d);
 
 	return 0;
 }
