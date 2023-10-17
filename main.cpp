@@ -14,10 +14,6 @@ T Min(T a, T b) {
 
 
 template<>
-float Min<float>(float a, float b) {//オーバーロード特殊化
-	return a - b;
-}
-template<>
 char Min<char>(char a, char b) {
 
 	printf("数字以外は代入できません\n");
