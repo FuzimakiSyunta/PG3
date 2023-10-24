@@ -3,7 +3,6 @@
 int SalaryCalculation(int time) {
 	if (time >= 2)
 	{
-		
 		return(time);
 	}
 	return(time * SalaryCalculation(time-50));
