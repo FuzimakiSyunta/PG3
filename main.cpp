@@ -1,18 +1,19 @@
 ﻿#include<stdio.h>
 
-int Recursive(int n) {
-	if (n <= 60)
+int SalaryCalculation(int time) {
+	if (time >= 2)
 	{
-		return(1);
+		
+		return(time);
 	}
-	return(n * Recursive(n - 1));
+	return(time * SalaryCalculation(time-50));
 }
 int main() {
-	int n = 100;
+	int num = 2;
 	int result;
 
-	result = Recursive(n);
-	printf("%dの階乗=%d\n", n, result);
+	result = SalaryCalculation(num);
+	printf("%d時間働いて給料は%d\n", num, result);
 
 	return(0);
 }
