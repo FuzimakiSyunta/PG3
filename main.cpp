@@ -1,7 +1,7 @@
 ﻿#include<stdio.h>
 
 int SalaryCalculation(int time) {
-	if (time >= 2)
+	if (time <= 1)
 	{
 		return(time);
 	}
