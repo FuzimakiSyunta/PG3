@@ -1,24 +1,43 @@
 ﻿#include<stdio.h>
+#include<Windows.h>
+#include<time.h>
 
-template<typename T>
+typedef void (*PFunc)(int *);
 
-T add(T a, T b) {
-	return a+b;
+void DispResult(int* s) {
+	printf("%d秒待って実行されたよ\n",*s);
+
 }
 
-template<>
-float add<float>(float a, float b) {//オーバーロード特殊化
-	return a - b;
+void setTimeout(PFunc p, int second) {
+	//コールバック関数を呼び出す
+	Sleep(second*1000);
+
+	p(&second);
 }
+int main()
+{
+	srand(time(nullptr));
 
-float add(float a, float b){//オーバーロード多重定義
-	return a * b;
-}
+	int dice = 0;//サイコロの変数
+	dice = rand() % 6 + 1;
 
-int main(void) {
-	printf("%d\n",add<int>(114,514));//628 関数テンプレートを利用
-	printf("%f\n", add<float>(11.4f, 51.4f));//-40.0 特殊化(オーバーライド)を利用
-	printf("%f\n", add(11.4f, 51.4f));//585.96 多重定義(オーバーロード)を利用
+	printf("整数か偶数か選んでください");
+	int number = 0;//入力変数
+	scanf_s("%d", &number);
 
+	//3秒まつ
+	PFunc p;
+	p = DispResult;
+	setTimeout(p, 3);
+	//奇数か偶数か
+	if (number == 1 || number == 3 || number == 5)
+	{
+		printf("奇数\n");
+	}
+	else
+	{
+		printf("偶数\n");
+	}
 	return 0;
 }
