@@ -1,18 +1,22 @@
 ﻿#include<stdio.h>
 
-int SalaryCalculation(int time) {
-	if (time <= 1)
+//計算結果
+int Total = 0;
+
+int SalaryCalculation(int Worktime,int num,int n) {
+	if (Worktime <= 0)
 	{
-		return(time);
+		printf("合計金額\n");
+		printf("%d %d\n", Total, n * 1072);
+
+	    return 0;
 	}
-	return(time * SalaryCalculation(time-50));
+	Total += num;//最初は100円+Total
+	printf("%d ",num);
+	printf("%d\n",(n+1)*1072);
+	return(Worktime * SalaryCalculation(Worktime - 1, num * 2 - 50, n + 1));
 }
 int main() {
-	int num = 2;
-	int result;
 
-	result = SalaryCalculation(num);
-	printf("%d時間働いて給料は%d\n", num, result);
-
-	return(0);
+	SalaryCalculation (5,100,0);
 }
