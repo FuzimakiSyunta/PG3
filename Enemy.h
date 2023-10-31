@@ -20,7 +20,9 @@ public:
 	void Draw();
 private:
 	//メンバ関数ポインタ
-	void(Enemy::*);
+	void(Enemy::*pFunc)();
+	//メンバ関数ポインタに関数アドレスを代入する
+
 
 
 };
