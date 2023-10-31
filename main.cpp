@@ -40,9 +40,10 @@ int main(int argc,const char*argv[])
 	setTimeout(p, 3);
 
 	int dice = 0;//サイコロの変数
-	auto fx = [=]() {return dice + rand() % 6 + 1; };
+	std::function<int()>Dicenum = [=]() {return dice + rand() % 6 + 1; };
+	
 
-	if (fx() % 2 == number % 2)
+	if (Dicenum() % 2 == number % 2)
 	{
 		p = WinResult;
 		setTimeout(p, 3);
