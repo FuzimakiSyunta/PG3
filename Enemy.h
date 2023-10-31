@@ -19,6 +19,9 @@ public:
 	/// </summary>
 	void Draw();
 private:
+	//メンバ関数ポインタ
+	void(Enemy::*);
+
 
 };
 
