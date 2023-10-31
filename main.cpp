@@ -1,6 +1,7 @@
 ﻿#include<stdio.h>
 #include<Windows.h>
 #include<time.h>
+#include<functional>
 
 typedef void (*PFunc)(int *);
 
@@ -25,7 +26,7 @@ void LoseResult(int* s)
 	printf("はずれ\n");
 }
 
-int main()
+int main(int argc,const char*argv[])
 {
 	srand(time(nullptr));
 
@@ -39,9 +40,9 @@ int main()
 	setTimeout(p, 3);
 
 	int dice = 0;//サイコロの変数
-	dice = rand() % 6 + 1;
+	auto fx = [=]() {return dice + rand() % 6 + 1; };
 
-	if (dice % 2 == number % 2)
+	if (fx() % 2 == number % 2)
 	{
 		p = WinResult;
 		setTimeout(p, 3);
