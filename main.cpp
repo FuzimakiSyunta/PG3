@@ -18,5 +18,5 @@ int SalaryCalculation(int Worktime,int num,int n) {
 }
 int main() {
 
-	SalaryCalculation (8,100,0);//5回
+	SalaryCalculation (8,100,0);//8回
 }
