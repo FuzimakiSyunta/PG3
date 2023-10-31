@@ -15,35 +15,42 @@ void setTimeout(PFunc p, int second) {
 
 	p(&second);
 }
-void Calculation()
-{
-	int number = 0;//入力変数
-	printf("整数か偶数か選んでください\n");
 
-	scanf_s("%d", &number);
-	//3秒まつ
-	PFunc p;
-	p = DispResult;
-	setTimeout(p, 3);
-	
-	//奇数か偶数か
-	if (number == 1 || number == 3 || number == 5)
-	{
-		printf("奇数\n");
-	}
-	else
-	{
-		printf("偶数\n");
-	}
+void WinResult(int* s)
+{
+	printf("当たり\n");
+}
+void LoseResult(int* s)
+{
+	printf("はずれ\n");
 }
 
 int main()
 {
 	srand(time(nullptr));
 
+	int number = 0;//入力変数
+	printf("半か丁か\n");
+
+	scanf_s("%d", &number);
+	//3秒まつ
+	PFunc p;
+	p = DispResult;
+	setTimeout(p, 3);
+
 	int dice = 0;//サイコロの変数
 	dice = rand() % 6 + 1;
-	Calculation();//計算関数呼び出し
+
+	if (dice % 2 == number % 2)
+	{
+		p = WinResult;
+		setTimeout(p, 3);
+	}
+	else
+	{
+		p = LoseResult;
+		setTimeout(p, 3);
+	}
 	
 	return 0;
 }
