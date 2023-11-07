@@ -1,15 +1,26 @@
 #include "Enemy.h"
 
-void::Enemy::Initialize()
-{
 
-}
 
 void Enemy::Update()
 {
+
 }
 
-void Enemy::Draw()
+void Enemy::Approach()
 {
+
 }
+
+void Enemy::Fire()
+{
+
+}
+
+void Enemy::Leave()
+{
+
+}
+
+
 

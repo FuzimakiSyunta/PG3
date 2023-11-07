@@ -1,29 +1,27 @@
 #pragma once
 class Enemy
 {
+private:
+	enum Phase {
+		APPROACH,//接近(0)
+		FIRE,//射撃(1)
+		LEAVE,//離脱(2)
+	};
+
 public:
-	// デストラクタ
-
-	/// <summary>
-	/// 初期化
-	/// </summary>
-	void Initialize();
-
 	/// <summary>
 	/// 更新
 	/// </summary>
 	void Update();
 
-	/// <summary>
-	/// 描画
-	/// </summary>
-	void Draw();
 private:
-	//メンバ関数ポインタ
-	void(Enemy::*pFunc)();
-	//メンバ関数ポインタに関数アドレスを代入する
-
-
-
+	//接近
+	void Approach();
+	//射撃
+	void Fire();
+	//離脱
+	void Leave();
+private:
+	Phase phase_ = APPROACH;
 };
 
