@@ -1,6 +1,13 @@
 #include "Enemy.h"
 
 
+void(Enemy::* Enemy::PhaseTable[])() =
+{
+	&Enemy::Approach,
+	&Enemy::Fire,
+	&Enemy::Leave,
+};
+
 
 void Enemy::Update()
 {

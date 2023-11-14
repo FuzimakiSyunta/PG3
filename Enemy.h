@@ -25,5 +25,7 @@ private:
 	Phase phase_ = APPROACH;
 	//メンバ関数ポインタ
 	void(Enemy::* Phase)();
+	//メンバ関数ポインタのテーブル
+	static void(Enemy::* PhaseTable[])();
 };
 
