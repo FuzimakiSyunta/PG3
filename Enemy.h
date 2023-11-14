@@ -23,5 +23,7 @@ private:
 	void Leave();
 private:
 	Phase phase_ = APPROACH;
+	//メンバ関数ポインタ
+	void(Enemy::* Phase)();
 };
 
