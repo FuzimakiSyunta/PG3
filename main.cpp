@@ -1,18 +1,16 @@
-﻿#include <stdio.h>
-#include "Car.h"
-#include "Track.h"
+﻿#include<stdio.h>
+#include "Circle.h"
+#include "Rectangle.h"
 
 int main() {
 
-	Vehicle* transducers[] = {
-		new Vehicle(),
-		new Car(),
-		new Track()
+	IShape* Ishape[] = {
+		new Circle(),
+		new Rectangle()
 	};
 
-	transducers[0]->VehicleType();
-	transducers[1]->VehicleType();
-	transducers[2]->VehicleType();
+	Ishape[0]->Draw();
+	Ishape[1]->Draw();
 
 	return 0;
 }
